@@ -1,0 +1,23 @@
+[
+    {
+      "title": "Portfolio Website",
+      "description": "A personal portfolio website",
+      "technologies": ["React", "JavaScript", "CSS", "HTML"],
+      "link": "https://Joachim.com/portfolio",
+      "image": "/static/default-image.jpg"
+    },
+    {
+      "title": "Online store",
+      "description": "An online store platform built with Django.",
+      "technologies": ["Django", "Python", "HTML"],
+      "link": "https://onlinestore.com",
+      "image": "/static/default-image.jpg"
+    },
+    {
+      "title": "AI Chatbot",
+      "description": "An AI-powered chatbot",
+      "technologies": ["Python", "CHATGPT", "Flask"],
+      "link": "https://github.com/johndoe/ai-chatbot",
+      "image": "/static/default-image.jpg"
+    }
+]

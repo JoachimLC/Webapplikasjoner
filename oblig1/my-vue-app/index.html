@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="static/Stylesheet.css" />
+    <title>Projects page</title>
+</head>
+<body>
+    <header class="grid-header">
+        <h1>LOGO</h1>
+        <nav>
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/projects">Projects</a></li>
+                <li><a href="/about">About me</a></li>
+                <li><a href="/contact">Contact</a></li>
+
+            </ul>
+        </nav>
+    </header>
+    <main class="grid-main">
+        <h2>prosjekter</h2>
+        <section id="articles" class="grid-articles">
+        </section>
+
+        <section class="formflex">
+            <h2>Add new project</h2>
+            <form id="projectForm" action="/submit-form" method="post">
+                <label for="title">Title:</label>
+                <br><br>
+                <input type="text" id="title" name="title" placeholder="Enter project title" required>
+                <br><br>
+        
+                <label for="description">Description:</label>
+                <br><br>
+                <input type="text" id="description" name="description" placeholder="Enter project description" required>
+                <br><br>
+        
+                <label for="technologies">Technologies used (seperated by comma):</label>
+                <br><br>
+                <input type="text" id="technologies" name="technologies" placeholder="python, html, css...">
+                <br><br>
+        
+                <label for="url">Link to project site</label>
+                <br><br>
+                <input type="url" id="url" name="url" placeholder="http://www.....">
+                <br><br>
+        
+                <label for="file">Upload image of page front</label>
+                <br><br>
+                <input type="file" id="file" name="file">
+                <br><br>
+                
+                <input type="submit" class="submitbutton" value="Submit">
+            </form>
+        </section>
+    </main>
+    <footer>Joachim Christiansen ©</footer>
+    <script defer type="module" src="static/main.js"></script>
+</body>
+</html>
