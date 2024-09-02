@@ -25,8 +25,8 @@ app.get("/json", async (c) => {
 
 //server respons som ved trykk på submit legger inn prosjektet fra skjemaet i den tomme listen
 app.post('/add', async (c) => {
-  const project = await c.req.json();
-  projects.push(project);
+  const newproject = await c.req.json();
+  projects.push(newproject);
   console.log(projects);
   return c.json({ message: 'Project received' }, 201);
 });

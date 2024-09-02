@@ -2,7 +2,7 @@ const form = document.getElementById("projectForm");
 const projectsSection = document.getElementById("articles");
 
 
-//Tar imot data fra skjema og sender til serverens tomme liste
+//Tar imot data fra skjema for å opprette nytt prosjekt objekt og sender til serverens tomme liste
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
 
@@ -32,7 +32,7 @@ form.addEventListener("submit", async (event) => {
 });
 
 
-//henter data data fra json gjennom serveren og oppdaterer html
+//henter data fra json gjennom serveren og oppdaterer html
 
 const fetchDataFromServerAndSendToHTML = async () => {
   console.log("Function called");
@@ -57,13 +57,13 @@ const fetchDataFromServerAndSendToHTML = async () => {
     h3.textContent = project.title;
     article.appendChild(h3);
 
-    const pDesc = document.createElement("p");
-    pDesc.textContent = project.description;
-    article.appendChild(pDesc);
+    const pDescription = document.createElement("p");
+    pDescription.textContent = project.description;
+    article.appendChild(pDescription);
 
-    const pTech = document.createElement("p");
-    pTech.innerHTML = `Technologies: ${project.technologies}`;
-    article.appendChild(pTech);
+    const pTechnologies = document.createElement("p");
+    pTechnologies.innerHTML = `Technologies: ${project.technologies}`;
+    article.appendChild(pTechnologies);
 
     const link = document.createElement("a");
     link.href = project.url;
@@ -76,3 +76,48 @@ const fetchDataFromServerAndSendToHTML = async () => {
 };
 
 fetchDataFromServerAndSendToHTML();
+
+//funksjon som laster inn fra json lokalt uten server som mellomledd
+//denne bruker jeg ikke, da jeg heller bruker funksjonen over som henter fra server
+function loadFromJSON() {
+  fetch("static/data.json")
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      const articlesection = document.getElementById("articles");
+      console.log(data);
+      for (const project of data) {
+        const article = document.createElement("article");
+        article.className = "grid-article-item";
+
+        const img = document.createElement("img");
+        img.src = project.image;
+        img.alt = project.title;
+        article.appendChild(img);
+
+        const h3 = document.createElement("h3");
+        h3.textContent = project.title;
+        article.appendChild(h3);
+
+        const p = document.createElement("p");
+        p.textContent = project.description;
+        article.appendChild(p);
+
+        const techPara = document.createElement("p");
+        techPara.textContent = "Technologies used: " + project.technologies;
+        article.appendChild(techPara);
+
+        const link = document.createElement("a");
+        link.href = project.link;
+        link.textContent = "Read More";
+        link.className = "read-more-link";
+        article.appendChild(link);
+
+        articlesection.appendChild(article);
+      }
+    })
+    .catch((error) => {
+      console.error('Error', error);
+    });
+  }
